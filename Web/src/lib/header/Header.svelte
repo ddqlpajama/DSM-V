@@ -31,15 +31,16 @@
 	</div>
 </header>
 
-<style>
+<style lang="scss">
 	header {
 		display: flex;
 		justify-content: space-between;
 		height: 6em;
+		background: global.$primary-color;
 	}
 
 	.corner {
-		max-width: 20%;
+		width: 10%;
 		height: 100%;
 	}
 
