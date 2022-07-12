@@ -4,7 +4,7 @@
 </script>
 
 <header>
-	<div class="corner">
+	<div class="corner-left">
 		<img src={logo} alt="Logo" />
 	</div>
 
@@ -32,6 +32,8 @@
 </header>
 
 <style lang="scss">
+	$background: rgba(255, 255, 255, 0.7);
+
 	header {
 		display: flex;
 		justify-content: space-between;
@@ -40,20 +42,29 @@
 	}
 
 	.corner {
-		width: 10%;
+		width: 20%;
 		height: 100%;
-	}
+		&,
+		&-left,
+		&-right {
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: contain;
+			}
+		}
 
-	.corner img {
-		width: 100%;
-		height: 100%;
-		object-fit: contain;
+		&-left img {
+			object-position: left center;
+		}
+		&-right img {
+			object-position: right center;
+		}
 	}
 
 	nav {
 		display: flex;
 		justify-content: center;
-		--background: rgba(255, 255, 255, 0.7);
 	}
 
 	svg {
@@ -63,7 +74,7 @@
 	}
 
 	path {
-		fill: var(--background);
+		fill: $background;
 	}
 
 	ul {
@@ -75,25 +86,25 @@
 		justify-content: center;
 		align-items: center;
 		list-style: none;
-		background: var(--background);
+		background: $background;
 		background-size: contain;
 	}
 
 	li {
 		position: relative;
 		height: 100%;
-	}
 
-	li.active::before {
-		--size: 6px;
-		content: '';
-		width: 0;
-		height: 0;
-		position: absolute;
-		top: 0;
-		left: calc(50% - var(--size));
-		border: var(--size) solid transparent;
-		border-top: var(--size) solid var(--accent-color);
+		&.active::before {
+			$size: 6px;
+			content: '';
+			width: 0;
+			height: 0;
+			position: absolute;
+			top: 0;
+			left: calc(50% - $size);
+			border: $size solid transparent;
+			border-top: $size solid global.$accent-color;
+		}
 	}
 
 	nav a {
@@ -111,6 +122,6 @@
 	}
 
 	a:hover {
-		color: var(--accent-color);
+		color: global.$accent-color;
 	}
 </style>

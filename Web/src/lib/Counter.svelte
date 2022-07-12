@@ -34,7 +34,7 @@
 	</button>
 </div>
 
-<style>
+<style lang="scss">
 	.counter {
 		display: flex;
 		border-top: 1px solid rgba(0, 0, 0, 0.1);
@@ -51,7 +51,7 @@
 		border: 0;
 		background-color: transparent;
 		touch-action: manipulation;
-		color: var(--text-color);
+		color: global.$text-color;
 		font-size: 2rem;
 	}
 
@@ -67,7 +67,7 @@
 	path {
 		vector-effect: non-scaling-stroke;
 		stroke-width: 2px;
-		stroke: var(--text-color);
+		stroke: global.$text-color;
 	}
 
 	.counter-viewport {
@@ -84,7 +84,7 @@
 		width: 100%;
 		height: 100%;
 		font-weight: 400;
-		color: var(--accent-color);
+		color: global.$accent-color;
 		font-size: 4rem;
 		align-items: center;
 		justify-content: center;
