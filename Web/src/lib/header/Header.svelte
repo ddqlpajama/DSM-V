@@ -1,32 +1,17 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import logo from './logo.png';
+
+	let orgName = '강일동 어린음악대';
 </script>
 
 <header>
 	<div class="corner-left">
 		<img src={logo} alt="Logo" />
+		<h1>{orgName}</h1>
 	</div>
 
-	<nav>
-		<svg viewBox="0 0 2 3" aria-hidden="true">
-			<path d="M0,0 L1,2 C1.5,3 1.5,3 2,3 L2,0 Z" />
-		</svg>
-		<ul>
-			<li class:active={$page.url.pathname === '/'}><a sveltekit:prefetch href="/">Home</a></li>
-			<li class:active={$page.url.pathname === '/about'}>
-				<a sveltekit:prefetch href="/about">About</a>
-			</li>
-			<li class:active={$page.url.pathname === '/todos'}>
-				<a sveltekit:prefetch href="/todos">Todos</a>
-			</li>
-		</ul>
-		<svg viewBox="0 0 2 3" aria-hidden="true">
-			<path d="M0,0 L0,3 C0.5,3 0.5,3 1,2 L2,0 Z" />
-		</svg>
-	</nav>
-
-	<div class="corner">
+	<div class="corner-right">
 		<!-- TODO put something else here? github link? -->
 	</div>
 </header>
@@ -41,25 +26,32 @@
 		background: global.$primary-color;
 	}
 
-	.corner {
-		width: 20%;
+	.corner-left,
+	.corner-right {
 		height: 100%;
-		&,
-		&-left,
-		&-right {
-			img {
-				width: 100%;
-				height: 100%;
-				object-fit: contain;
-			}
+		padding-left: 2%;
+		padding-right: 2%;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
 		}
+		h1 {
+			line-height: 1;
+			white-space: nowrap;
+			margin-left: 1em;
+			margin-right: 1em;
+		}
+	}
 
-		&-left img {
-			object-position: left center;
-		}
-		&-right img {
-			object-position: right center;
-		}
+	.corner-left > img {
+		object-position: left center;
+	}
+	.corner-right > img {
+		object-position: right center;
 	}
 
 	nav {
