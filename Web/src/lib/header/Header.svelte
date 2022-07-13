@@ -5,14 +5,26 @@
 	let orgName = '강일동 어린음악대';
 </script>
 
+<svelte:head>
+	<link rel="stylesheet" href="https://unpkg.com/mono-icons@latest/iconfont/icons.css" />
+</svelte:head>
+
 <header>
 	<div class="corner-left">
 		<img src={logo} alt="Logo" />
-		<h1>{orgName}</h1>
+		<h3>{orgName}</h3>
 	</div>
 
 	<div class="corner-right">
-		<!-- TODO put something else here? github link? -->
+		<button class="tool">
+			<i class="mi mi-search" />
+		</button>
+		<button class="tool">
+			<i class="mi mi-notification" />
+		</button>
+		<button class="tool">
+			<i class="mi mi-user" />
+		</button>
 	</div>
 </header>
 
@@ -22,12 +34,11 @@
 	header {
 		display: flex;
 		justify-content: space-between;
-		height: 6em;
+		height: 3em;
 		background: global.$primary-color;
 	}
 
-	.corner-left,
-	.corner-right {
+	.corner-left {
 		height: 100%;
 		padding-left: 2%;
 		padding-right: 2%;
@@ -39,7 +50,10 @@
 			height: 100%;
 			object-fit: contain;
 		}
-		h1 {
+		h1,
+		h2,
+		h3,
+		h4 {
 			line-height: 1;
 			white-space: nowrap;
 			margin-left: 1em;
@@ -50,8 +64,26 @@
 	.corner-left > img {
 		object-position: left center;
 	}
-	.corner-right > img {
-		object-position: right center;
+	.corner-right {
+		height: 100%;
+		background-color: global.$tertiary-color;
+		* {
+			background-color: transparent;
+		}
+		button {
+			aspect-ratio: 1 / 1;
+			height: 100%;
+			border-width: 0;
+			&:hover {
+				background-color: rgb(4, 29, 82);
+			}
+			i {
+				color: global.$heading-color;
+				font-size: 1.4rem;
+				width: 100%;
+				height: 100%;
+			}
+		}
 	}
 
 	nav {
